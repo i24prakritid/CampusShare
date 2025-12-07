@@ -13,9 +13,12 @@ const csrfProtection = (req, res, next) => {
     return next();
   }
 
-  const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173';
-  const origin = req.headers.origin;
+  const allowedOrigin = (process.env.FRONTEND_URL || 'http://localhost:5173').replace(/\/$/, ''); // Remove trailing slash
+  const origin = req.headers.origin?. replace(/\/$/, ''); // Remove trailing slash
   const referer = req.headers.referer;
+
+  // Log for debugging (remove in production later)
+  console.log('CSRF Check - Allowed:', allowedOrigin, 'Received:', origin);
 
   // Check Origin header first (more reliable)
   if (origin) {
@@ -23,11 +26,12 @@ const csrfProtection = (req, res, next) => {
       return next();
     }
     console.warn(`CSRF blocked: Origin mismatch. Expected: ${allowedOrigin}, Got: ${origin}`);
-    return res.status(403).json({
+    return res. status(403).json({
       success: false,
       message: 'CSRF validation failed: invalid origin',
     });
   }
+
 
   // Fallback to Referer header
   if (referer) {
