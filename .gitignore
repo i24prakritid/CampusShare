@@ -1,0 +1,92 @@
+# ----------------------------
+# Global Node.js
+# ----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpm-store/
+
+# ----------------------------
+# Environment Files
+# ----------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------
+# Logs
+# ----------------------------
+logs/
+*.log
+log-*.log
+
+# ----------------------------
+# OS / Editor
+# ----------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ----------------------------
+# Backend (Node.js / Express)
+# ----------------------------
+backend/node_modules/
+backend/dist/
+backend/build/
+backend/.env
+backend/uploads/
+backend/temp/
+backend/coverage/
+
+# For TypeScript projects:
+backend/*.tsbuildinfo
+
+# ----------------------------
+# Frontend (React / Vite)
+# ----------------------------
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.eslintcache
+frontend/.parcel-cache/
+frontend/.vite/
+frontend/coverage/
+
+# ----------------------------
+# Optional: Docker
+# ----------------------------
+docker-data/
+*.pid
+
+# ----------------------------
+# Optional: PM2
+# ----------------------------
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ----------------------------
+# Optional: Mongo Dump Files
+# ----------------------------
+dump/
+*.bson
+
+# ----------------------------
+# Optional: uploads
+# ----------------------------
+uploads/
+public/uploads/
+
+# ----------------------------
+# Cache
+# ----------------------------
+.cache/
+.tmp/
+temp/

@@ -1,0 +1,158 @@
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm inviting light blue theme */
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 210 35% 99%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 210 35% 99%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 215 25% 20%;
+
+    --muted: 210 25% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    --accent: 174 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 210 35% 97%;
+    --sidebar-foreground: 215 25% 15%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 30% 94%;
+    --sidebar-accent-foreground: 215 25% 20%;
+    --sidebar-border: 210 25% 88%;
+    --sidebar-ring: 199 89% 48%;
+
+    /* Custom tokens */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --coral: 16 85% 60%;
+    --coral-foreground: 0 0% 100%;
+    --teal: 174 60% 45%;
+    --teal-foreground: 0 0% 100%;
+    --cream: 210 35% 95%;
+
+    /* Gradients - Warm light blue */
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(210 90% 55%) 50%, hsl(220 85% 60%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(210 35% 99%) 0%, hsl(210 30% 97%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(200 35% 95%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(215 25% 15% / 0.08);
+    --shadow-md: 0 8px 24px -4px hsl(215 25% 15% / 0.12);
+    --shadow-lg: 0 16px 48px -8px hsl(215 25% 15% / 0.16);
+    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.3);
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 25% 95%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 25% 95%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 25% 95%;
+
+    --primary: 199 89% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 18% 18%;
+    --secondary-foreground: 210 25% 90%;
+
+    --muted: 220 18% 20%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 174 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 18% 22%;
+    --input: 220 18% 22%;
+    --ring: 199 89% 55%;
+
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 210 25% 95%;
+    --sidebar-primary: 199 89% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 18% 18%;
+    --sidebar-accent-foreground: 210 25% 90%;
+    --sidebar-border: 220 18% 22%;
+    --sidebar-ring: 199 89% 55%;
+
+    --success: 142 60% 55%;
+    --warning: 38 85% 55%;
+    --coral: 16 80% 58%;
+    --teal: 174 55% 55%;
+    --cream: 220 18% 15%;
+
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 55%) 0%, hsl(210 80% 45%) 50%, hsl(220 75% 40%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220 18% 13%) 0%, hsl(220 18% 11%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(220 20% 10%) 0%, hsl(215 20% 12%) 100%);
+
+    --shadow-glow: 0 0 40px hsl(199 89% 55% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-lg);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
