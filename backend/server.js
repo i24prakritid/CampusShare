@@ -14,13 +14,17 @@ const userRoutes = require('./routes/users');
 // Initialize express app
 const app = express();
 
+// Trust proxy - Required for Vercel/deployment behind reverse proxy
+// This is needed for express-rate-limit to work correctly
+app.set('trust proxy', 1);
+
 // Connect to MongoDB
 connectDB();
 
 // CORS configuration
 const corsOptions = {
   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-  credentials: true, // Allow cookies to be sent
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -33,6 +37,7 @@ app.use(cookieParser());
 
 // CSRF protection for state-changing requests
 app.use(csrfProtection);
+
 
 // Request logging in development
 if (process.env.NODE_ENV === 'development') {
